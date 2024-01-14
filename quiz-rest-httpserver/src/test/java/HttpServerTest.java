@@ -7,12 +7,17 @@ import fr.epita.quiz.datamodel.User;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.*;
 
 public class HttpServerTest {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ExecutionException, InterruptedException, TimeoutException {
         HttpServer server = HttpServer.create(new InetSocketAddress(80), 0);
+        int processors = Runtime.getRuntime().availableProcessors() / 2;
+        ExecutorService executor = Executors.newFixedThreadPool(processors);
+        server.setExecutor(executor);
         HttpContext context = server.createContext("/test");
         context.setHandler(ex -> {
             String requestMethod = ex.getRequestMethod();
@@ -52,11 +57,29 @@ public class HttpServerTest {
             }
         });
         server.start();
+
         System.out.println("Ready for inputs");
-//        connectAndGet();
-        connectAndPost();
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        List<Future<?>> futures = new ArrayList<>();
+        for(int i=0; i<100; i++){
+            System.out.println("client - starting task - i = " + i);
+             Future<?> future = executorService.submit(()->{
+                 System.out.println(Thread.currentThread().getId());
+                 System.out.println(Thread.currentThread().getState());
+                try{
+                    connectAndGet();
+                    connectAndPost();
 //        connectAndPut();
 //        connectAndDelete();
+                }catch (IOException ioe){
+                    ioe.printStackTrace();
+                }
+            });
+             futures.add(future);
+        }
+
+        for (Future future: futures)
+            future.get();
         server.stop(2);
     }
     private static void connectAndGet() throws IOException {
