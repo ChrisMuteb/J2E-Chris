@@ -1,9 +1,14 @@
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpServer;
+import fr.epita.quiz.datamodel.User;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
+import java.util.Arrays;
+import java.util.List;
 
 public class HttpServerTest {
     public static void main(String[] args) throws IOException {
@@ -11,18 +16,26 @@ public class HttpServerTest {
         HttpContext context = server.createContext("/test");
         context.setHandler(ex -> {
             String requestMethod = ex.getRequestMethod();
+            ObjectMapper mapper = new ObjectMapper();
+
             switch (requestMethod){
                 case "GET":
                     System.out.println("GET endpoint");
-                    byte[] bytes = "Hello from get!".getBytes();
+                    User user = new User("Chris", "Paris", "123");
+                    User user1 = new User("Elie", "Lyon", "456");
+                    List<User> users = Arrays.asList(user, user1);
+                    String jsonString = mapper.writeValueAsString(users);
+                    byte[] bytes = jsonString.getBytes();
                     ex.sendResponseHeaders(200, bytes.length);
                     ex.getResponseBody().write(bytes);
                     break;
                 case "POST":
                     System.out.println("POST endpoint");
-                    byte[] bytesPost = "Hello from post!".getBytes();
-                    ex.sendResponseHeaders(201, bytesPost.length);
-                    ex.getResponseBody().write(bytesPost);
+                    User userToBeCreated = mapper.readValue(ex.getRequestBody(), User.class);
+                    System.out.println(userToBeCreated);
+                    byte[] response = "user created with id 1".getBytes();
+                    ex.sendResponseHeaders(201, response.length);
+                    ex.getResponseBody().write(response);
                     break;
                 case "PUT":
                     System.out.println("PUT endpoint");
@@ -40,8 +53,8 @@ public class HttpServerTest {
         });
         server.start();
         System.out.println("Ready for inputs");
-        connectAndGet();
-//        connectAndPost();
+//        connectAndGet();
+        connectAndPost();
 //        connectAndPut();
 //        connectAndDelete();
         server.stop(2);
@@ -51,22 +64,32 @@ public class HttpServerTest {
         connection.setRequestMethod("GET");
         connection.connect();
         int responseCode = connection.getResponseCode();
-        System.out.println("response core - " + responseCode);
-        InputStream inputStream = connection.getInputStream();
-        byte[] bytes = inputStream.readAllBytes();
-        String responseText = new String(bytes);
-        System.out.println(responseText);
-    }
-    private static void connectAndPost() throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:80/test").openConnection();
-        connection.setRequestMethod("POST");
-        connection.connect();
-        int responseCode = connection.getResponseCode();
         System.out.println("response code - " + responseCode);
         InputStream inputStream = connection.getInputStream();
         byte[] bytes = inputStream.readAllBytes();
         String responseText = new String(bytes);
         System.out.println(responseText);
+        ObjectMapper mapper = new ObjectMapper();
+        List<User> users = mapper.readValue(responseText, new TypeReference<List<User>>() {});
+        System.out.println("The users list size is: " + users.size());
+        System.out.println("first user: " + users.get(0));
+    }
+    private static void connectAndPost() throws IOException {
+        HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:80/test").openConnection();
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);//activate the output
+        User user = new User("Amos", "Lyon", "563");
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(user);
+        byte[] bytes = jsonString.getBytes();
+        connection.getOutputStream().write(bytes);
+        connection.connect();
+
+        int responseCode = connection.getResponseCode();
+        System.out.println("response code - " + responseCode);
+        System.out.println(new String(connection.getInputStream().readAllBytes()));
+        connection.disconnect();
+
     }
     private static void connectAndPut() throws IOException{
         HttpURLConnection connection = (HttpURLConnection) new URL("http://localhost:80/test").openConnection();

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="Quiz-Core &amp; HttpServer created">
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/datamodel/User.java" afterDir="false" />
+    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="creating endpoint on the httpserver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/datamodel/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/datamodel/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/HttpServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/HttpServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705245112317</updated>
-      <workItem from="1705245113590" duration="7109000" />
+      <workItem from="1705245113590" duration="9445000" />
     </task>
     <task id="LOCAL-00001" summary="Quiz-Core &amp; HttpServer created">
       <option name="closed" value="true" />
@@ -105,7 +104,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705249876765</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="creating endpoint on the httpserver">
+      <option name="closed" value="true" />
+      <created>1705255974716</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705255974716</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +121,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Quiz-Core &amp; HttpServer created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quiz-Core &amp; HttpServer created" />
+    <MESSAGE value="creating endpoint on the httpserver" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating endpoint on the httpserver" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
