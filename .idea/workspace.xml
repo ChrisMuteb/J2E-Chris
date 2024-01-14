@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="use jackson for serializing/deserializing object sent into bytes through the stream.">
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/datamodel/Question.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/ConfigurationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/resources/conf.properties" afterDir="false" />
+    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it.">
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestWithDI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/HttpServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/HttpServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +54,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/quiz-core/src/test/resources" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.epita.quiz.services" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -65,7 +65,7 @@
       <command value="mvn test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ConfigurationTest">
+  <component name="RunManager" selected="JUnit.TestWithDI">
     <configuration name="HttpServerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HttpServerTest" />
       <module name="quiz-rest-httpserver" />
@@ -104,8 +104,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestWithDI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quiz-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.epita.tests.quiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
+      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.TestWithDI" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestWithDI" />
         <item itemvalue="JUnit.ConfigurationTest" />
         <item itemvalue="Application.HttpServerTest" />
         <item itemvalue="JUnit.QuizCoreTests.test" />
@@ -120,7 +136,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705245112317</updated>
-      <workItem from="1705245113590" duration="14311000" />
+      <workItem from="1705245113590" duration="15964000" />
     </task>
     <task id="LOCAL-00001" summary="Quiz-Core &amp; HttpServer created">
       <option name="closed" value="true" />
@@ -146,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705258544818</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it.">
+      <option name="closed" value="true" />
+      <created>1705264281809</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705264281809</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +181,8 @@
     <MESSAGE value="Quiz-Core &amp; HttpServer created" />
     <MESSAGE value="creating endpoint on the httpserver" />
     <MESSAGE value="use jackson for serializing/deserializing object sent into bytes through the stream." />
-    <option name="LAST_COMMIT_MESSAGE" value="use jackson for serializing/deserializing object sent into bytes through the stream." />
+    <MESSAGE value="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it." />
+    <option name="LAST_COMMIT_MESSAGE" value="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
