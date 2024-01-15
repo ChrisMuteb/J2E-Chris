@@ -12,7 +12,7 @@ import java.util.List;
 public class QuestionDAOWithDI {
     @Inject
     DataSource ds;
-    private static final String INSERT_STMT = "INSERT INTO QUESTION(title) values (?)";
+    private static final String INSERT_STMT = "INSERT INTO QUESTIONS(title) values (?)";
     private static final String SELECT_STMT = "SELECT id, title from QUESTIONS WHERE title like ?";
     public void create(Question question) throws SQLException, IOException {
         Connection connection = getConnection();

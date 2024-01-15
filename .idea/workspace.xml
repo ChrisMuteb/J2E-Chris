@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it.">
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestWithDI.java" afterDir="false" />
+    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="Introduction to dependency injection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/ConfigurationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/ConfigurationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestWithDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestWithDI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +66,7 @@
       <command value="mvn test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestWithDI">
+  <component name="RunManager" selected="JUnit.TestWithDI (1)">
     <configuration name="HttpServerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="HttpServerTest" />
       <module name="quiz-rest-httpserver" />
@@ -104,7 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestWithDI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestWithDI (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="quiz-core" />
       <extension name="coverage">
         <pattern>
@@ -119,8 +120,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestWithDI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quiz-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.epita.tests.quiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
+      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.TestWithDI" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea -Dconf.location=S:\test.properties" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.HttpServerTest" />
+      <item itemvalue="JUnit.TestWithDI (1)" />
+      <item itemvalue="JUnit.ConfigurationTest" />
+      <item itemvalue="JUnit.QuizCoreTests.test" />
+      <item itemvalue="JUnit.TestWithDI" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestWithDI (1)" />
         <item itemvalue="JUnit.TestWithDI" />
         <item itemvalue="JUnit.ConfigurationTest" />
         <item itemvalue="Application.HttpServerTest" />
@@ -136,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705245112317</updated>
-      <workItem from="1705245113590" duration="15964000" />
+      <workItem from="1705245113590" duration="20742000" />
     </task>
     <task id="LOCAL-00001" summary="Quiz-Core &amp; HttpServer created">
       <option name="closed" value="true" />
@@ -170,7 +196,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705264281809</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Introduction to dependency injection">
+      <option name="closed" value="true" />
+      <created>1705267343976</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705267343976</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +216,8 @@
     <MESSAGE value="creating endpoint on the httpserver" />
     <MESSAGE value="use jackson for serializing/deserializing object sent into bytes through the stream." />
     <MESSAGE value="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it." />
-    <option name="LAST_COMMIT_MESSAGE" value="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it." />
+    <MESSAGE value="Introduction to dependency injection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Introduction to dependency injection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
