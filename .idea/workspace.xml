@@ -4,13 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="Introduction to dependency injection">
+    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/junit-spring-module/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/junit-spring-module/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/junit-spring-module/src/test/java/InjectionConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/junit-spring-module/src/test/java/TestSpringJunitIntegration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionJPADAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestHibernateORM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/web/client/UserHttpClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/web/server/Microserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/web/server/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/ApplicationConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/ClientServerCommunicationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/HttpServerTestThroughDI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/datamodel/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/datamodel/Question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/ConfigurationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/ConfigurationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestWithDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestWithDI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/resources/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/resources/conf.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +54,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "corretto-17",
@@ -47,7 +63,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/Users/chriskayomb/Documents/EPITA/S3/AdvJ/Exam-Prep/homework-prep/quiz-rest-httpserver/src/main/java/org/example/Main.java",
+    "onboarding.tips.debug.path": "/Users/chriskayomb/Documents/EPITA/S3/AdvJ/Exam-Prep/homework-prep/junit-spring-module/src/main/java/org/example/Main.java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -66,30 +82,26 @@
       <command value="mvn test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestWithDI (1)">
-    <configuration name="HttpServerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HttpServerTest" />
+  <component name="RunManager" selected="JUnit.TestHibernateORM">
+    <configuration name="ClientServerCommunicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="quiz-rest-httpserver" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ConfigurationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="quiz-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="fr.epita.tests.quiz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
-      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.ConfigurationTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ClientServerCommunicationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuizCoreTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpServerTestThroughDI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quiz-rest-httpserver" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HttpServerTestThroughDI" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestHibernateORM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="quiz-core" />
       <extension name="coverage">
         <pattern>
@@ -98,9 +110,17 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
-      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.QuizCoreTests" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.TestHibernateORM" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestSpringJunitIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="junit-spring-module" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestSpringJunitIntegration" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,37 +140,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestWithDI" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="quiz-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="fr.epita.tests.quiz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
-      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.TestWithDI" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea -Dconf.location=S:\test.properties" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="Application.HttpServerTest" />
+      <item itemvalue="JUnit.ClientServerCommunicationTest" />
+      <item itemvalue="JUnit.HttpServerTestThroughDI" />
+      <item itemvalue="JUnit.TestHibernateORM" />
+      <item itemvalue="JUnit.TestSpringJunitIntegration" />
       <item itemvalue="JUnit.TestWithDI (1)" />
-      <item itemvalue="JUnit.ConfigurationTest" />
-      <item itemvalue="JUnit.QuizCoreTests.test" />
-      <item itemvalue="JUnit.TestWithDI" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestHibernateORM" />
+        <item itemvalue="JUnit.ClientServerCommunicationTest" />
+        <item itemvalue="JUnit.HttpServerTestThroughDI" />
+        <item itemvalue="JUnit.TestSpringJunitIntegration" />
         <item itemvalue="JUnit.TestWithDI (1)" />
-        <item itemvalue="JUnit.TestWithDI" />
-        <item itemvalue="JUnit.ConfigurationTest" />
-        <item itemvalue="Application.HttpServerTest" />
-        <item itemvalue="JUnit.QuizCoreTests.test" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +165,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705245112317</updated>
-      <workItem from="1705245113590" duration="20742000" />
+      <workItem from="1705245113590" duration="30340000" />
     </task>
     <task id="LOCAL-00001" summary="Quiz-Core &amp; HttpServer created">
       <option name="closed" value="true" />
@@ -204,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705267343976</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database.">
+      <option name="closed" value="true" />
+      <created>1705317989905</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705317989905</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +228,8 @@
     <MESSAGE value="use jackson for serializing/deserializing object sent into bytes through the stream." />
     <MESSAGE value="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it." />
     <MESSAGE value="Introduction to dependency injection" />
-    <option name="LAST_COMMIT_MESSAGE" value="Introduction to dependency injection" />
+    <MESSAGE value="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -236,6 +248,11 @@
           <url>file://$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/org/example/Main.java</url>
           <line>15</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/junit-spring-module/src/main/java/org/example/Main.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

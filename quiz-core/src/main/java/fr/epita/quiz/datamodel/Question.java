@@ -1,7 +1,16 @@
 package fr.epita.quiz.datamodel;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "QUESTIONS")
 public class Question {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "QUEST_ID")
     private int id;
+    @Column(name = "QUEST_TITLE")
+
     private String title;
 
     public String getTitle() {
