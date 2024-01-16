@@ -2,6 +2,8 @@ package fr.epita.quiz.datamodel;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "QUESTIONS")
 public class Question {
@@ -28,4 +30,6 @@ public class Question {
     public void setId(int id) {
         this.id = id;
     }
+    @OneToMany(targetEntity = Choice.class, mappedBy = "question", fetch = FetchType.LAZY)
+    private List<Choice> choices;
 }

@@ -4,28 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database.">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/junit-spring-module/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/junit-spring-module/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/junit-spring-module/src/test/java/InjectionConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/junit-spring-module/src/test/java/TestSpringJunitIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionJPADAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestHibernateORM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/web/client/UserHttpClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/web/server/Microserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/main/java/fr/epita/quiz/web/server/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/ApplicationConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/ClientServerCommunicationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/quiz-rest-httpserver/src/test/java/HttpServerTestThroughDI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="fe2406ef-43f2-4b9b-a98e-0c7066449282" name="Changes" comment="introduction to hibernate">
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/datamodel/Choice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/ChoiceJPADAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/api/IChoiceDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/api/IDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/api/IQuestionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/datamodel/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/datamodel/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionDAOWithDI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionJPADAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/main/java/fr/epita/quiz/services/QuestionJPADAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/BeanConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/resources/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/resources/conf.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-rest-httpserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestHibernateORM.java" beforeDir="false" afterPath="$PROJECT_DIR$/quiz-core/src/test/java/fr/epita/tests/quiz/TestHibernateORM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +27,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -82,7 +74,7 @@
       <command value="mvn test" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestHibernateORM">
+  <component name="RunManager" selected="JUnit.TestHibernateORM.testQuestionDAO">
     <configuration name="ClientServerCommunicationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="quiz-rest-httpserver" />
       <option name="PACKAGE_NAME" value="" />
@@ -116,6 +108,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestHibernateORM.testQuestionDAO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="quiz-core" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.epita.tests.quiz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
+      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.TestHibernateORM" />
+      <option name="METHOD_NAME" value="testQuestionDAO" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestSpringJunitIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="junit-spring-module" />
       <option name="PACKAGE_NAME" value="" />
@@ -125,35 +133,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestWithDI (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="quiz-core" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="fr.epita.tests.quiz.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="fr.epita.tests.quiz" />
-      <option name="MAIN_CLASS_NAME" value="fr.epita.tests.quiz.TestWithDI" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="JUnit.ClientServerCommunicationTest" />
       <item itemvalue="JUnit.HttpServerTestThroughDI" />
       <item itemvalue="JUnit.TestHibernateORM" />
+      <item itemvalue="JUnit.TestHibernateORM.testQuestionDAO" />
       <item itemvalue="JUnit.TestSpringJunitIntegration" />
-      <item itemvalue="JUnit.TestWithDI (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestHibernateORM.testQuestionDAO" />
         <item itemvalue="JUnit.TestHibernateORM" />
         <item itemvalue="JUnit.ClientServerCommunicationTest" />
         <item itemvalue="JUnit.HttpServerTestThroughDI" />
         <item itemvalue="JUnit.TestSpringJunitIntegration" />
-        <item itemvalue="JUnit.TestWithDI (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +158,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705245112317</updated>
-      <workItem from="1705245113590" duration="30340000" />
+      <workItem from="1705245113590" duration="38404000" />
     </task>
     <task id="LOCAL-00001" summary="Quiz-Core &amp; HttpServer created">
       <option name="closed" value="true" />
@@ -215,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705317989905</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="introduction to hibernate">
+      <option name="closed" value="true" />
+      <created>1705351282844</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705351282844</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +230,8 @@
     <MESSAGE value="creation of a singleton configuration file &amp; set a conf. properties file containing the connection string &amp; using a system properties, access it." />
     <MESSAGE value="Introduction to dependency injection" />
     <MESSAGE value="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a h2 dependency, implemented basic Dependeny injection &amp; created a Question and retrieved it from the database." />
+    <MESSAGE value="introduction to hibernate" />
+    <option name="LAST_COMMIT_MESSAGE" value="introduction to hibernate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
