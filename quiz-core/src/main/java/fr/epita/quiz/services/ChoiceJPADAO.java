@@ -8,7 +8,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import javax.inject.Inject;
 import java.util.List;
 
 public class ChoiceJPADAO implements IChoiceDAO {

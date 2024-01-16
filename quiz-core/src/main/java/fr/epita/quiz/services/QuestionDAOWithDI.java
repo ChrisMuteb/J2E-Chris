@@ -2,8 +2,9 @@ package fr.epita.quiz.services;
 
 import fr.epita.quiz.datamodel.Question;
 import fr.epita.quiz.services.api.IQuestionDAO;
+import jakarta.inject.Inject;
 
-import javax.inject.Inject;
+
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.*;
@@ -59,5 +60,10 @@ public class QuestionDAOWithDI implements IQuestionDAO {
         }
 
         return questions;
+    }
+
+    @Override
+    public Question getById(Object id) {
+        return null;
     }
 }
